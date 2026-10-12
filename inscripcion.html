@@ -3,9 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario de Inscripción Curso</title>
+    <link rel="stylesheet" href="css/styles.css"> 
 </head>
 <body>
-    
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Formulario de Inscripción Curso</h1>
+            <p>Rellene cuidadosamente el formulario de inscripción</p>
+        </div>
+
+        <form id="inscripcionForm" action="php/enviar.php" method="POST">
+            
+            <!-- Nombre del alumno -->
+            <div class="form-group">
+                <label>Nombre del alumno</label>
+                <div class="form-row name-row">
+                    <div class="form-col">
+                        <input type="text" name="nombre" required>
+                        <span class="help-text">Nombre</span>
+                    </div>
+                    <div class="form-col">
+                        <input type="text" name="segundo_nombre">
+                        <span class="help-text">Segundo Nombre</span>
+                    </div>
+                    <div class="form-col">
+                        <input type="text" name="apellido" required>
+                        <span class="help-text">Apellido</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fecha de nacimiento y Género -->
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="fecha">Fecha de nacimiento</label>
+                    <input type="date" id="fecha" name="fecha_nacimiento">
+                    <span class="help-text">Fecha</span>
+                </div>
+                <div class="form-col">
+                    <label for="genero">Género</label>
+                    <select id="genero" name="genero">
+                        <option value="" disabled selected>Seleccione</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dirección -->
+            <div class="form-group">
+                <label>Dirección</label>
+                
+                <div class="address-field">
+                    <input type="text" name="direccion" required>
+                    <span class="help-text">Dirección de la calle</span>
+                </div>
+
+                <div class="address-field">
+                    <input type="text" name="direccion_linea2">
+                    <span class="help-text">Dirección de la calle Línea 2</span>
+                </div>
+
+                <div class="form-row address-row">
+                    <div class="form-col">
+                        <input type="text" name="ciudad">
+                        <span class="help-text">Ciudad</span>
+                    </div>
+                    <div class="form-col">
+                        <input type="text" name="estado">
+                        <span class="help-text">Estado / Provincia</span>
+                    </div>
+                </div>
+                
+                <div class="address-field postal-field">
+                    <input type="text" name="codigo_postal">
+                    <span class="help-text">Código Postal</span>
+                </div>
+            </div>
+
+            <!-- Email y Número de teléfono (¡Aquí estaban faltando!) -->
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="help-text">ejemplo@ejemplo.com</span>
+                </div>
+                <div class="form-col">
+                    <label for="telefono">Número de teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="(000) 000-0000">
+                    <span class="help-text">Favor ingrese un número de teléfono válido.</span>
+                </div>
+            </div>
+
+            <!-- ¿Ha recibido otros cursos Anteriormente? -->
+            <div class="form-group">
+                <label>¿Ha recibido otros cursos Anteriormente?</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="cursos_previos" value="si"> Si
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="cursos_previos" value="no"> No
+                    </label>
+                </div>
+            </div>
+
+            <!-- Empresa y Cursos -->
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" id="empresa" name="empresa">
+                </div>
+                <div class="form-col">
+                    <label for="cursos">Cursos</label>
+                    <select id="cursos" name="curso">
+                        <option value="" disabled selected>Seleccione</option>
+                        <option value="curso1">Curso de Programación</option>
+                        <option value="curso2">Curso de Bases de Datos</option>
+                        <option value="curso3">Curso de Diseño Web</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Comentarios adicionales -->
+            <div class="form-group">
+                <label for="comentarios">Comentarios adicionales</label>
+                <textarea id="comentarios" name="comentarios"></textarea>
+            </div>
+
+            <!-- Botón de Envío -->
+            <div class="form-footer">
+                <button type="submit" class="btn-submit">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
